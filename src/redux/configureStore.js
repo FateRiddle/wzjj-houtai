@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux'
 import promise from 'redux-promise'
 import createLogger from 'redux-logger'
-import { pieces } from './data'
+import { users } from './data'
 import app from './reducers'
 
 // const thunk = (store) => (next) => (action) => {
@@ -20,7 +20,7 @@ const configureStore = () => {
   }
   //wrapDispatchWithMiddlewares(store, middlewares)
   const persistedState = {
-    pieces,
+    users,
   }
 
   return createStore(

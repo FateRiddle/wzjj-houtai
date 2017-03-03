@@ -1,23 +1,23 @@
 // import { v4 } from 'uuid'
 
 
-export const changeTab = (id) => ({
-  type: 'CHANGE_TAB',
-  id,
+export const addUser = (name,phone,address) => ({
+  type: 'ADD_USER',
+  name,
+  phone,
+  address,
 })
 
-export const changeVisibility = (id) => ({
-  type: 'CHANGE_VISIBILITY',
-  id,
+export const updateUser = (users) => ({
+  type: 'UPDATE_USER',
+  users,
 })
 
-export const changeOption = (id,option) => ({
-  type: 'CHANGE_OPTION',
-  id,
-  option,
+export const changeFilter = (filter) => ({
+  type: 'CHANGE_FILTER',
+  filter,
 })
 
-export const changePiece = (id) => ({
-  type: 'CHANGE_PIECE',
-  id,
+export const toggleLogin = () => ({
+  type: 'TOGGLE_LOGIN',
 })

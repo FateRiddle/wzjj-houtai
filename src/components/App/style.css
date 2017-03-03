@@ -1,24 +1,207 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+button {
+  width: 100px;
+  height: 5vh;
+  max-height: 30px;
+  background-color: rgb(133, 93, 205);
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  letter-spacing: 3px;
+  border-style: none;
+  border-radius: 2px;
+  outline: none;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
+button:hover {
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2),0 4px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+button:active {
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
+input {
+  /*border-style: none;*/
+  width: 200px;
+  height: 5vh;
+  max-height: 30px;
+  border-radius: 5px;
+  /*border-bottom: 1px solid #dcdcdc;*/
+  font-size: 20px;
+  text-indent: 5px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.Login {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-top: 20vh;
+  padding-left: 18vw;
+  background: #fe6914;
+}
+
+#login-logo {
+  display: block;
+  height: 25px;
   padding: 20px;
+}
+
+#login-pic {
+  display: block;
+  width: 40vw;
+  height: 40vh;
+}
+
+.Login section {
+  display: flex;
+}
+
+.Login main {
+  width: 18vw;
+  padding: 30px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Login header {
+  font-size: 1.8rem;
+  color: grey;
+  padding: 1rem 0;
+}
+
+.Login input {
+  width: 240px;
+  margin: 10px 0;
+}
+
+.Login button {
+  width: 240px;
+  height: 40px;
+  max-height: 40px;
+  margin-top: 30px;
+  letter-spacing: 15px;
+  font-size: 20px;
+}
+
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  align-items: center;
+  width: calc(100% - 80px);
+  background: #3b3b3b;
+  height: 10vh;
+  max-height: 100px;
   color: white;
 }
 
-.App-intro {
-  font-size: large;
+.Body {
+  display: flex;
+  height: 90vh;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/*.Sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  list-style-type: none;
+  width: 160px;
+  border-right: 1px solid #dcdcdc;
+}
+
+.Sidebar li {
+  padding: 30px;
+  text-align: right;
+}
+
+.Sidebar li:hover {
+  color: white;
+  background: #d0d5e0;
+}*/
+
+.MainContent {
+  padding: 8px;
+  width: calc(100% - 16px);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.ContentHeader {
+  display: flex;
+  justify-content: space-between;
+  height: 7vh;
+  max-height: 80px;
+  padding: 0 30px;
+  align-items: center;
+  border-left: 1px solid #dcdcdc;
+  border-right: 1px solid #dcdcdc;
+  border-bottom: 1px solid #dcdcdc;
+  background-color: white;
+}
+
+.Searchbar input {
+  /*border-style: none;*/
+  width: 200px;
+  height: 5vh;
+  max-height: 30px;
+  border-radius: 5px;
+  /*border-bottom: 1px solid #dcdcdc;*/
+  font-size: 20px;
+  text-indent: 5px;
+}
+
+.ContentTable {
+  margin-top: 5px;
+  padding: 0 10px;
+  border: 1px solid #dcdcdc;
+  background-color: white;
+}
+
+.TableHeader {
+  height: 50px;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  list-style-type: none;
+  border-bottom: 2px solid #fe6914;
+}
+
+.TableHeader li {
+  flex-basis: 20%;
+  text-align: center;
+}
+
+.ScrollWrapper {
+  width: 100%;
+  height: calc(83vh - 75px);
+  overflow: auto;
+}
+
+tbody {
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 42px);
+}
+
+tr {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 3rem;
+  border-bottom: 1px solid #dcdcdc;
 }

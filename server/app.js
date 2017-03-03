@@ -15,20 +15,22 @@ app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:htt
 // Serve static assets
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
-// Always return the main index.html, so react-router render the route in the client
-app.get('*', (req, res) => {
-
-  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
-});
-
 app.get('/user', (req, res) => {
+  console.log('try to get data');
   db.then(()=>{
-    new sql.Request().query('select * from tb_huodong').then(data => {
+    new sql.Request().query('select * from tb_huodong order by createdAt desc').then(data => {
         res.send(data)
     }).catch(err => {
       console.error(err)
     });
-  })
+  }).catch(err => console.log(err))
+});
+
+
+// Always return the main index.html, so react-router render the route in the client
+app.get('*', (req, res) => {
+
+  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 });
 
 module.exports = app;

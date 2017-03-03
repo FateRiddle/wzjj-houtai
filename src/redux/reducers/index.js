@@ -1,12 +1,18 @@
 import { combineReducers } from 'redux'
-import currentTab from './currentTab'
-import currentPiece from './currentPiece'
-import pieces from './pieces'
+import users from './users'
+import filter from './filter'
+import login from './login'
+import * as fromUsers from './users'
+
 
 const app = combineReducers({
-  currentTab,
-  currentPiece,
-  pieces,
+  users,
+  filter,
+  login,
 })
 
 export default app
+
+export const getFilteredUsers = (store) => {
+  return fromUsers.getFilteredUsers(store.users,store.filter)
+}
