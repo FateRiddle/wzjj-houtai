@@ -191,6 +191,7 @@ input:focus {
 
 .CompletedFilter header {
   text-indent: 1vw;
+  height: 2.6vh;
   border-bottom: 1px dotted grey;
 }
 

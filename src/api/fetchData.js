@@ -15,7 +15,7 @@ const fakedb = {
   auth:{name:'youcb',password:'1234'}
 }
 
-const url = 'http://localhost:9000'
+const url = ''
 
 const delay = ms =>
   new Promise(resolve => setTimeout(resolve,ms))

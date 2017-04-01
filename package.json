@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "server": "nodemon server",
+    "server": "node server",
     "server-dev":"DEBUG=express* nodemon server",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
