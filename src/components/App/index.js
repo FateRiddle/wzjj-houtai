@@ -1,28 +1,29 @@
 // src/components/App/index.js
 import { connect } from 'react-redux'
-import React, { Component } from 'react';
-import './style.css';
-// import axios from 'axios'
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import './style.css'
 import Header from '../Header.js'
 import MainContent from '../MainContent/index'
 import Login from '../Login.js'
+import Sidebar from '../Sidebar'
 
 class App extends Component {
 
-  // handleClick = () => {
-  //   axios.get('/user').then(res => console.log(res))
-  // }
-
   render() {
     return (this.props.login?
-      <div>
-        <Header />
-        <div className="Body">
-          {/* <Sidebar activeTab="客户信息"/> */}
-          <MainContent />
+      <Router>
+        <div>
+          <Header />
+          <div className="Body">
+            <Route component={Sidebar} />
+            <Route exact path="/" render={()=><div></div>} />
+            <Route path="/:activity" render={() => <MainContent />} />
+          </div>
         </div>
-      </div>:
-      <Login />
+      </Router>
+
+      :<Login />
     )
   }
 }

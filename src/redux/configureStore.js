@@ -1,31 +1,20 @@
 import { createStore, applyMiddleware } from 'redux'
-import promise from 'redux-promise'
-import createLogger from 'redux-logger'
-import { users } from './data'
+import thunk from 'redux-thunk'
+import logger from 'redux-logger'
+import preloadState from './data'
 import app from './reducers'
-
-// const thunk = (store) => (next) => (action) => {
-//   if(typeof action.then === 'function') {
-//     return action.then(next)
-//   }
-//   return next(action)
-// }
 
 const configureStore = () => {
 
-  const middlewares = [promise]
+  const middlewares = [thunk]
   //rewrite dispatch
   if (process.env.NODE_ENV !== 'production') {
-    middlewares.push(createLogger())
-  }
-  //wrapDispatchWithMiddlewares(store, middlewares)
-  const persistedState = {
-    users,
+    middlewares.push(logger)
   }
 
   return createStore(
     app,
-    persistedState,
+    preloadState,
     applyMiddleware(...middlewares),
   )
 }
