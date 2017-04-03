@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended:false }))
 app.use(bodyParser.json())
 
 const sql = require('mssql');
-const db = sql.connect("mssql://youcb:DJit9379@youcaibao.sqlserver.rds.aliyuncs.com:3433/youcb_dev")
+const db = sql.connect("mssql://name:pwd@youcaibao.sqlserver.rds.aliyuncs.com:3433/youcb_dev")
 
 // Setup logger
 // app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
