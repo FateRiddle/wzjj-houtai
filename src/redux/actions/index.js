@@ -46,7 +46,7 @@ export const saveNews = (news) => (dispatch,getState) => {
       })
       setTimeout(()=>dispatch({
         type: 'REFRESH_SAVE_STATE'
-      }),2000)
+      }),1200)
     },
     error => {
       dispatch({

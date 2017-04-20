@@ -138,11 +138,6 @@ input:focus {
   display: flex;
 }
 
-.Sidebar li:hover {
-  color: white;
-  background: #d0d5e0;
-}
-
 .Sidebar a {
   text-align: center;
   padding: 3vh 0;
@@ -153,6 +148,10 @@ input:focus {
 
 .Sidebar a.active {
   color: #fe6914;
+}
+
+.Sidebar a:hover {
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .MainContent {

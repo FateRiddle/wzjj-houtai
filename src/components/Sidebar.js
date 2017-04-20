@@ -13,6 +13,7 @@ class Sidebar extends React.Component {
   render() {
     return <ul className='Sidebar'>
       <li><NavLink to='/news'>新闻</NavLink></li>
+      <li><NavLink to='/baoming'>报名</NavLink></li>
     </ul>
   }
 }

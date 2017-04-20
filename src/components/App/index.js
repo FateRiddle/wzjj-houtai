@@ -19,6 +19,7 @@ class App extends Component {
             <Route component={Sidebar} />
             <Switch>
               <Route path="/news" render={() => <MainContent />} />
+              <Route path="/baoming" render={() => <div></div>} />
               <Redirect to="/news"></Redirect>
             </Switch>
           </div>
