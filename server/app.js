@@ -27,7 +27,7 @@ const { db,sql } = database
 
 app.get('/api/news', (req, res) => {
   db.then(() => {
-    return sql.query`select * from tb_wzjj_news order by createdAt`
+    return sql.query`select top 23 * from tb_wzjj_news order by createdAt`
   })
   .then(result => {
     res.json(result)
