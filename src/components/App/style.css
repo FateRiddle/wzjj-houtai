@@ -4,6 +4,10 @@
   color: #2c2c2c;
 }
 
+html,body, #root,.App {
+  height: 100%;
+}
+
 ul,li {
   list-style: none;
 }
@@ -104,7 +108,6 @@ input:focus {
   font-size: 20px;
 }
 
-
 .Header {
   display: flex;
   justify-content: space-between;
@@ -112,14 +115,14 @@ input:focus {
   align-items: center;
   width: calc(100% - 80px);
   background: #3b3b3b;
-  height: 10vh;
+  height: 10%;
   max-height: 100px;
   color: white;
 }
 
 .Body {
   display: flex;
-  height: 90vh;
+  height: 90%;
 }
 
 .Sidebar {
@@ -156,179 +159,100 @@ input:focus {
   padding: 8px;
   width: calc(100% - 146px);
   background-color: rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
 }
 
-.ContentHeader {
+.NewsHeader {
   display: flex;
   justify-content: space-between;
   height: 7vh;
   max-height: 80px;
   padding: 0 30px;
   align-items: center;
-  border-left: 1px solid #dcdcdc;
-  border-right: 1px solid #dcdcdc;
-  border-bottom: 1px solid #dcdcdc;
   background-color: white;
 }
 
-.Searchbar input {
-  /*border-style: none;*/
-  width: 200px;
-  height: 5vh;
-  max-height: 30px;
-  border-radius: 5px;
-  /*border-bottom: 1px solid #dcdcdc;*/
-  font-size: 20px;
-  text-indent: 5px;
-}
-
-.CompletedFilter {
-  position: relative;
-  width: 9vw;
-  display: flex;
-  flex-direction: column;
-}
-
-.CompletedFilter header {
-  text-indent: 1vw;
-  height: 2.6vh;
-  border-bottom: 1px dotted grey;
-}
-
-.CompletedFilter header:hover {
-  color: #55CFDE;
-}
-
-.CompletedFilter header img {
-  position: absolute;
-  right: 0.5vw;
-  top: 1vh;
-  height: 1.1vh;
-}
-
-.CompletedFilter section {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  position: absolute;
-  top: 5vh;
-  width: 7vw;
-  height: 10vh;
-  background: white;
-  border: 1px solid grey;
-  box-shadow: 0 2px 2px grey;
-}
-
-.CompletedFilter section div {
-  padding: 0 1vw;
-}
-
-.CompletedFilter section div:hover {
-
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.ContentTable {
-  margin-top: 5px;
-  padding: 0 10px;
-  border: 1px solid #dcdcdc;
-  background-color: white;
-}
-
-.TableHeader {
-  height: 3rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border-bottom: 2px solid #fe6914;
-}
-
-.TableHeader li {
-  width: 13%;
-  text-align: center;
-  /*border: 1px solid;*/
-}
-
-.TableHeader li:first-child {
-  flex-shrink: 0;
-  width: 3rem;
-}
-
-.TableHeader li:last-child {
-  flex-shrink: 0;
-  width: 15rem;
-}
-
-.ScrollWrapper {
-  width: 100%;
-  height: calc(83vh - 75px);
-  overflow: auto;
-}
-
-table {
-  width: 100%;
-}
-
-tbody {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-tr {
-  display: flex;
-  justify-content: flex-start;
-  /*align-items: center;*/
-  line-height: 3rem;
-  height: 3rem;
-  border-bottom: 1px solid #dcdcdc;
-}
-
-td {
-  width: 13%;
-  text-align: center;
-  /*border: 1px solid;*/
-}
-
-td:first-child {
-  width: 3rem;
-  background-image: url('../../static/check.png');
-  background-size: 60%;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-td:first-child.completed {
-  background-image: url('../../static/check-hover.png');
-  background-size: 60%;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-td:last-child {
-  width: 15rem;
-  flex-grow: 1;
-  text-align: left;
-  text-indent: 1rem;
-}
-
-td input {
-  font-size: 1rem;
-  border-style: none;
-  border: 1px solid white;
-}
-
-td input:focus {
-  border: 1px solid grey;
-}
-
-.LoadingScreen {
-  height: 100%;
-  width: 100%;
-  padding: 5vh 5vw;
+.NewsHeader__addButton {
+  width: 40px;
   font-size: 1.5rem;
-  letter-spacing: 0.6rem;
+}
+
+.NewsTable {
+  margin-top: 7px;
+  padding: 0 10px;
+  background-color: white;
+}
+
+.NewsTable__nothing {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.NewsEditor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid grey;
+}
+
+.NewsEditor input {
+  text-indent: 8px;
+  border-color: white;
+}
+
+.NewsEditor input:hover, .NewsEditor input:focus {
+  border-color: grey;
+}
+
+.NewsEditor header {
+  width: 75%;
+  display: flex;
+  margin: 10px 0;
+}
+
+.titleInput {
+  flex-grow: 1;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.longInput {
+  width: 75%;
+  margin-bottom: 10px;
+}
+
+.NewsEditor__buttons {
+  width: 75%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.NewsEditor__buttons .deleteButton {
+  background: #F24A4A;
+  margin-right: 10px;
+}
+
+.Banner {
+  height: 40px;
+  background: lightgreen;
+  text-indent: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.Alert {
+  height: 40px;
+  background: lightblue;
+  text-indent: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.Alert button {
+  height: 25px;
   background: white;
+  color:#F24A4A;
+  margin-left: 10px;
 }

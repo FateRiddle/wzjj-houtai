@@ -1,11 +1,13 @@
 {
-  "name": "baoming",
+  "name": "wzjj-houtai",
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
     "classnames": "^2.2.5",
     "nodemon": "^1.11.0",
-    "react-scripts": "^0.9.5"
+    "react-scripts": "^0.9.5",
+    "rimraf": "^2.6.1",
+    "uuid": "^3.0.1"
   },
   "dependencies": {
     "axios": "^0.15.3",
@@ -27,9 +29,11 @@
   "scripts": {
     "start": "react-scripts start",
     "server": "node server",
-    "server-dev":"DEBUG=express* nodemon server",
+    "server-dev": "DEBUG=express* nodemon server",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "eject": "react-scripts eject",
+    "rebuild": "rimraf /node_modules & yarn install & npm install --only-dev"
+  },
+  "proxy":"http://localhost:3000"
 }

@@ -1,22 +1,15 @@
 import React from 'react'
-import ContentTable from './ContentTable-huodong'
-import ContentTableY from './ContentTable-yuyue'
-import ContentHeader from './ContentHeader'
-import { withRouter } from 'react-router'
+import NewsTable from './NewsTable'
+import NewsHeader from './NewsHeader'
 
 class MainContent extends React.Component {
 
   render() {
-    const { location:{ pathname } } = this.props
     return <div className="MainContent">
-      <ContentHeader />
-      {
-        pathname === '/yuyue'?<ContentTableY />:
-        (pathname === '/huodong' || pathname === '/liangfang')?<ContentTable />:
-        <div className='NoMatch'></div>
-      }
+      <NewsHeader />
+      <NewsTable />
     </div>
   }
 }
 
-export default withRouter(MainContent)
+export default MainContent

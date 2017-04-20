@@ -18,3 +18,4 @@ yarn-error.log*
 
 # private
 plan.js
+/server/db.js
