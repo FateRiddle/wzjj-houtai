@@ -67,7 +67,7 @@ app.post('/api/news', (req, res) => {
   .catch(err => {console.error('sql error:',err)})
 })
 
-app.put('/api/news/:id',(req,res) => {
+app.delete('/api/news/:id',(req,res) => {
   const { id } = req.params
   db.then(() => {
     const request = new sql.Request()

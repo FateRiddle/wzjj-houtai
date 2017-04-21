@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux'
 import login from './login'
 import news,* as fromNews from './news'
-import alert from './alert'
+import alert from './alertControl'
+import bannerInfo from './bannerInfo'
 
 
 const app = combineReducers({
   news,
   login,
   alert,
+  bannerInfo,
 })
 
 export default app

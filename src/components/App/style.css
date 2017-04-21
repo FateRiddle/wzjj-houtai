@@ -241,6 +241,10 @@ input:focus {
   align-items: center;
 }
 
+.Banner--failure {
+  background: #FF8784;
+}
+
 .Alert {
   height: 40px;
   background: lightblue;

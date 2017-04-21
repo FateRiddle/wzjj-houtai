@@ -53,18 +53,37 @@ export const saveNews = (news) => (dispatch,getState) => {
         type: 'SAVE_NEWS_FAILURE',
         msg: error.message || '网络连接问题，请重试。'
       })
+      setTimeout(()=>dispatch({
+        type: 'REFRESH_SAVE_STATE'
+      }),1200)
     }
     // TODO: error handle
   )
 }
 
 export const deleteNews = (id) => (dispatch,getState) => {
+  dispatch({
+    type:'DELETE_NEWS_REQUEST',
+  })
+
   return api.deleteNews(id).then(
     response => {
       dispatch({
         type: 'DELETE_NEWS',
         id,
       })
+      setTimeout(()=>dispatch({
+        type: 'REFRESH_SAVE_STATE'
+      }),1000)
+    },
+    error => {
+      dispatch({
+        type: 'DELETE_NEWS_FAILURE',
+        msg: error.message || '网络连接问题，请重试。'
+      })
+      setTimeout(()=>dispatch({
+        type: 'REFRESH_SAVE_STATE'
+      }),1000)
     }
   )
 }

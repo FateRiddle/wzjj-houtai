@@ -65,24 +65,32 @@ const isFetching = (state=false, action) => {
 const isSaving = (state=false, action) => {
   switch (action.type) {
     case 'SAVE_NEWS_REQUEST':
+    case 'DELETE_NEWS_REQUEST':
       return true
     case 'SAVE_NEWS':
+    case 'DELETE_NEWS':
       return false
     case 'SAVE_NEWS_FAILURE':
+    case 'DELETE_NEWS_FAILURE':
       return false
     default:
       return state
   }
 }
 
-const saveSucess = (state=false, action) => {
+const saveSucess = (state='normal', action) => {
   switch (action.type) {
     case 'SAVE_NEWS_REQUEST':
-      return false
+    case 'DELETE_NEWS_REQUEST':
+      return 'normal'
     case 'SAVE_NEWS':
-      return true
+    case 'DELETE_NEWS':
+      return 'success'
+    case 'SAVE_NEWS_FAILURE':
+    case 'DELETE_NEWS_FAILURE':
+      return 'failure'
     case 'REFRESH_SAVE_STATE':
-      return false
+      return 'normal'
     default:
       return state
   }

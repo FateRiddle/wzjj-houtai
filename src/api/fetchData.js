@@ -24,7 +24,7 @@ export const saveNews = (news) => {
 }
 
 export const deleteNews = (id) => {
-  return axios.put(`${url}/api/news/${id}`,).then(res => {
+  return axios.delete(`${url}/api/news/${id}`,).then(res => {
     console.log(res);
     return res
   })

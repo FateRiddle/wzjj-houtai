@@ -4,19 +4,22 @@ import { connect } from 'react-redux'
 class Banner extends React.Component {
 
   render() {
-    const { isSaving,saveSucess } = this.props
+    const { isSaving,saveSucess,bannerInfo } = this.props
     if(isSaving){
-      return <div className="Banner Banner--saving">处理中...</div>
-    } else if(saveSucess){
-      return <div className="Banner Banner--saved">保存成功！</div>
+      return <div className="Banner Banner--saving">{bannerInfo}</div>
+    } else if(saveSucess === 'success'){
+      return <div className="Banner Banner--success">{bannerInfo}</div>
+    } else if(saveSucess === 'failure'){
+      return <div className="Banner Banner--failure">{bannerInfo}</div>
     }
     return null
   }
 }
 
-const mapStateToProps = ({ news }) => ({
+const mapStateToProps = ({ news,bannerInfo }) => ({
   isSaving:news.isSaving,
   saveSucess:news.saveSucess,
+  bannerInfo,
 })
 
 Banner = connect(mapStateToProps)(Banner)
