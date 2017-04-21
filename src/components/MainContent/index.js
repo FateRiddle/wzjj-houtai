@@ -1,12 +1,12 @@
 import React from 'react'
 import NewsTable from './NewsTable'
-import NewsHeader from './NewsHeader'
+import NewsToolbar from './NewsToolbar'
 
 class MainContent extends React.Component {
 
   render() {
     return <div className="MainContent">
-      <NewsHeader />
+      <NewsToolbar />
       <NewsTable />
     </div>
   }

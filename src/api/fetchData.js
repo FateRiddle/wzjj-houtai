@@ -30,6 +30,23 @@ export const deleteNews = (id) => {
   })
 }
 
+export const fetchMembers = (members) => {
+  return axios.get(`${url}/api/members`).then(res => res.data)
+}
+
+export const toggleMember = (id) => {
+  if(id){
+    return axios.post(`${url}/api/members/${id}?completed=toggle`).then(res => res)
+  }
+  return Promise.resolve()
+}
+
+export const saveMemo = (id,memo) => {
+  return axios.post(`${url}/api/members/${id}?memo=${memo}`).then(res => {
+    return res
+  })
+}
+
 export const auth = (name,password) => delay(600).then(() => {
   return fakedb.auth.name === name && fakedb.auth.password === password
 })

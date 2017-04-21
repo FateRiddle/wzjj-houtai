@@ -1,5 +1,5 @@
 import * as api from '../../api/fetchData'
-import { getIsFetchingNews,getIsSavingNews } from '../reducers'
+import { getIsFetchingNews,getIsSavingNews,getIsFetchingMembers } from '../reducers'
 import { v4 } from 'uuid'
 
 export const updateNews = () => (dispatch, getState) => {
@@ -132,24 +132,69 @@ export const openAlert = (msg,id) => ({
 })
 
 
+//Sign up
+export const changeFilter = (filter) => ({
+  type: 'CHANGE_FILTER',
+  filter,
+})
 
-// export const changeFilter = (filter) => ({
-//   type: 'CHANGE_FILTER',
-//   filter,
-// })
-//
-// export const changeCompleted = (completed) => ({
-//   type: "CHANGE_COMPLETED_FILTER",
-//   completed,
-// })
-//
-// export const toggleUser = (id) => (dispatch,getState) => {
-//   api.toggleUser(id).then(
-//     () => {
-//       dispatch({
-//         type: 'TOGGLE_USER_COMPLETE',
-//         id,
-//       })
-//     }
-//   )
-// }
+export const changeCompleted = (completed) => ({
+  type: "CHANGE_COMPLETED_FILTER",
+  completed,
+})
+
+export const toggleMember = (id) => (dispatch) => {
+  api.toggleMember(id).then(
+    () => {
+      dispatch({
+        type: 'TOGGLE_MEMBER_COMPLETE',
+        id,
+      })
+    }
+  )
+}
+
+export const updateMembers = () => (dispatch, getState) => {
+  //如果已经在fetch，不再fetch第二次
+  if(getIsFetchingMembers(getState())){
+    return Promise.resolve()
+  }
+
+  dispatch({
+    type:'UPDATE_MEMBER_REQUEST',
+  })
+
+  return api.fetchMembers().then(
+    response => {
+      dispatch({
+        type: 'UPDATE_MEMBER',
+        members: response.recordset || [],
+      })
+    },
+    error => {
+      dispatch({
+        type: 'UPDATE_MEMBER_FAILURE',
+        msg: error.message || '网络连接问题，请重试。'
+      })
+    }
+    // TODO: error handle
+  )
+}
+
+export const editMemo = (id,memo) => ({
+  type: 'EDIT_MEMBER_MEMO',
+  id,
+  memo,
+})
+
+export const saveMemo = (id,memo) => (dispatch) => {
+  dispatch({
+    type: 'SAVE_MEMO_REQUEST',
+  })
+  
+  api.saveMemo(id,memo).then( res =>
+    dispatch({
+      type: 'SAVE_MEMO',
+    })
+  )
+}

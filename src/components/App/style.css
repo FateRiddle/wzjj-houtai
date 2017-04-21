@@ -65,7 +65,7 @@ input:focus {
 
 #login-logo {
   display: block;
-  height: 25px;
+  height: 80px;
   padding: 20px;
 }
 
@@ -120,6 +120,10 @@ input:focus {
   color: white;
 }
 
+.Header img {
+  height: 60px;
+}
+
 .Body {
   display: flex;
   height: 90%;
@@ -158,10 +162,10 @@ input:focus {
   padding: 8px;
   width: calc(100% - 146px);
   background-color: rgba(0, 0, 0, 0.1);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
-.NewsHeader {
+.Toolbar {
   display: flex;
   justify-content: space-between;
   height: 7vh;
@@ -171,18 +175,18 @@ input:focus {
   background-color: white;
 }
 
-.NewsHeader__addButton {
+.Toolbar__addButton {
   width: 40px;
   font-size: 1.5rem;
 }
 
-.NewsTable {
+.Table {
   margin-top: 7px;
   padding: 0 10px;
   background-color: white;
 }
 
-.NewsTable__nothing {
+.Table__nothing {
   height: 40px;
   display: flex;
   align-items: center;
@@ -258,4 +262,124 @@ input:focus {
   background: white;
   color:#F24A4A;
   margin-left: 10px;
+}
+
+.SignupTable__Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  font-size: 1.1rem;
+}
+
+.SignupTable__Header li {
+  flex: 150px;
+  text-align: center;
+}
+
+.SignupTable__Header li:first-child {
+  flex: 0 0 50px;
+  height: 40px;
+}
+
+.SignupTable__Header li:last-child {
+  flex: 0 2 400px;
+}
+
+.SignupTable__scrollWrapper {
+  overflow-y:auto;
+  height: calc(90vh - 132px);
+}
+
+.SignupTable__scrollWrapper table {
+  width: 100%;
+}
+
+.SignupTable__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 38px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  font-size: 1rem;
+}
+
+.SignupTable__row td {
+  flex: 150px;
+  text-align: center;
+}
+
+.SignupTable__row td:first-child {
+  flex: 0 0 50px;
+  height: 38px;
+  background-image: url('../../static/check.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 60%;
+}
+
+.SignupTable__row td:first-child.completed {
+  background-image: url('../../static/check-hover.png');
+}
+
+.SignupTable__row td:last-child {
+  flex: 0 2 400px;
+}
+
+.memoInput {
+  width: 90%;
+  font-size: 1rem;
+  text-indent: 8px;
+  border-color: white;
+}
+
+.memoInput:hover, .memoInput:focus {
+  border-color: grey;
+}
+
+.CompletedFilter {
+  position: relative;
+  width: 9vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.CompletedFilter header {
+  text-indent: 1vw;
+  height: 2.6vh;
+  border-bottom: 1px dotted grey;
+}
+
+.CompletedFilter header:hover {
+  color: #55CFDE;
+}
+
+.CompletedFilter header img {
+  position: absolute;
+  right: 0.5vw;
+  top: 1vh;
+  height: 1.1vh;
+}
+
+.CompletedFilter section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  top: 5vh;
+  width: 7vw;
+  height: 10vh;
+  background: white;
+  border: 1px solid grey;
+  box-shadow: 0 2px 2px grey;
+}
+
+.CompletedFilter section div {
+  padding: 0 1vw;
+}
+
+.CompletedFilter section div:hover {
+
+  background: rgba(0, 0, 0, 0.1);
 }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import * as actions from '../../redux/actions'
 import { withRouter } from 'react-router'
 
-class NewsHeader extends React.Component {
+class NewsToolbar extends React.Component {
 
   handleRefleshClick = () => {
     if(this.props.location.pathname === '/news') {
@@ -19,16 +19,16 @@ class NewsHeader extends React.Component {
 
   render() {
     return (
-      <div className="NewsHeader">
+      <div className="Toolbar">
         <button onClick={this.handleRefleshClick}>刷新信息</button>
-        <button className='NewsHeader__addButton' onClick={this.handleAddClick}>+</button>
+        <button className='Toolbar__addButton' onClick={this.handleAddClick}>+</button>
       </div>
     )
   }
 }
 
-NewsHeader = withRouter(connect(null,{
+NewsToolbar = withRouter(connect(null,{
   ...actions
-})(NewsHeader))
+})(NewsToolbar))
 
-export default NewsHeader
+export default NewsToolbar

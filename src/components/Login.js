@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { auth } from '../api/fetchData'
 import { toggleLogin } from '../redux/actions'
+import whiteLogo from '../static/wzjj-logo-white.png'
+import background from '../static/loginBackground.png'
 
 class Login extends React.Component {
 
@@ -25,9 +27,9 @@ class Login extends React.Component {
   render() {
     return (
       <div className='Login'>
-        <img id="login-logo" src={require("../static/logo 1.png")} alt=""/>
+        <img id="login-logo" src={whiteLogo} alt=""/>
         <section>
-          <img id="login-pic" src={require("../static/loginBackground.png")} alt="" />
+          <img id="login-pic" src={background} alt="" />
           <main>
             <header>登录</header>
             <input ref={node=>this.name = node} id="login-name" placeholder='请输入账号' />

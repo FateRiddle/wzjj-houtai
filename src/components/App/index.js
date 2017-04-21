@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route,Switch,Redirect } from 'react-router-dom
 import './style.css'
 import Header from '../Header.js'
 import MainContent from '../MainContent'
+import SignupPage from '../SignupPage'
 import Login from '../Login.js'
 import Sidebar from '../Sidebar'
 
@@ -19,7 +20,7 @@ class App extends Component {
             <Route component={Sidebar} />
             <Switch>
               <Route path="/news" render={() => <MainContent />} />
-              <Route path="/baoming" render={() => <div></div>} />
+              <Route path="/signup" render={() => <SignupPage />} />
               <Redirect to="/news"></Redirect>
             </Switch>
           </div>

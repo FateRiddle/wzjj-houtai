@@ -19,19 +19,19 @@ class NewsTable extends React.Component {
 
     if(isFetching){
       return (
-        <div className='NewsTable'>
-          <div className='NewsTable__nothing'>加载中...</div>
+        <div className='Table'>
+          <div className='Table__nothing'>加载中...</div>
         </div>
       )
     }
     if(news.length === 0){
       return (
-        <div className='NewsTable'>
-          <div className="NewsTable__nothing">点“+”添加一条</div>
+        <div className='Table'>
+          <div className="Table__nothing">点“+”添加一条</div>
         </div>
       )
     }
-    return <div className='NewsTable'>
+    return <div className='Table'>
       <Alert />
       <Banner />
       {

@@ -83,4 +83,57 @@ app.delete('/api/news/:id',(req,res) => {
   .catch(err => {console.error('sql error:',err)})
 })
 
+
+
+app.get('/api/members', (req, res) => {
+  db.then(() => {
+    return sql.query`select * from tb_wzjj_signup order by createdAt desc`
+  })
+  .then(result => {
+    res.json(result)
+  })
+  .catch(err => {console.error('sql error:',err)})
+})
+
+app.post('/api/members/:id',(req,res) => {
+  const { id } = req.params
+  const { completed,memo } = req.query
+  if(completed === 'toggle'){
+    db.then(() => {
+      const request = new sql.Request()
+      return request
+      .query(`
+        declare @completed bit
+        select @completed=completed from tb_wzjj_signup where id='${id}'
+        if(@completed=0)
+        update tb_wzjj_signup set completed=1 where id='${id}'
+        else
+        update tb_wzjj_signup set completed=0 where id='${id}'
+      `)
+    })
+    .then( result => {
+      res.json(result)
+    })
+    .catch(err => {console.error('sql error:',err)})
+  }
+
+  if(memo || memo === ''){
+    db.then(() => {
+      const request = new sql.Request()
+      return request
+      .query(`
+        update tb_wzjj_signup set memo='${memo}' where id='${id}'
+      `)
+    })
+    .then( result => {
+      res.json(result)
+    })
+    .catch(err => {console.error('sql error:',err)})
+  }
+
+})
+
+
+
+
 module.exports = app;
